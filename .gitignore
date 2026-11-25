@@ -1,0 +1,91 @@
+# ============================================================
+# DENY-BY-DEFAULT .gitignore for n8n-nodes-fencemaker (public repo)
+# Everything is ignored unless explicitly un-ignored below.
+# When adding a new file type/folder, you must add a matching
+# "!" rule here, or it will silently never be committed.
+# ============================================================
+
+# 1. Ignore absolutely everything first
+*
+
+# 2. Allow git to traverse into these directories so it can
+#    evaluate the file-level rules below (without this, git
+#    won't even look inside an ignored directory)
+!/nodes/
+!/nodes/**/
+!/credentials/
+!/credentials/**/
+!/icons/
+!/icons/**/
+!/dist-icons/
+!/test/
+!/test/**/
+
+# 3. Allow specific, known-safe file types inside those dirs
+!/nodes/**/*.ts
+!/nodes/**/*.json
+!/nodes/**/*.svg
+!/nodes/**/*.png
+!/credentials/**/*.ts
+!/icons/**/*.svg
+!/icons/**/*.png
+!/test/**/*.ts
+
+# 4. Allow known-safe root-level project files (explicit, one by one —
+#    do NOT use a wildcard here, that defeats the whole point)
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+!/tsconfig.*.json
+!/.eslintrc.js
+!/.eslintrc.json
+!/eslint.config.mjs
+!/.prettierrc
+!/.prettierrc.js
+!/.prettierignore
+!/gulpfile.js
+!/jest.config.js
+!/README.md
+!/LICENSE
+!/LICENSE.md
+!/.gitignore
+!/.npmignore
+!/.github/
+!/.github/**/*.yml
+!/.github/**/*.yaml
+
+# ============================================================
+# EXPLICIT HARD BLOCKS — redundant with the deny-by-default
+# above, but kept visible and spelled out on purpose so nobody
+# "fixes" a missing-file problem by loosening a rule above and
+# accidentally re-exposes one of these.
+# ============================================================
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+*.log
+.DS_Store
+
+.env
+.env.*
+*.pem
+*.key
+*credentials*.json
+*secrets*
+
+# Local n8n dev data (can contain the n8n encryption key,
+# stored credentials, workflow data from local testing)
+.n8n/
+~/.n8n/
+
+# Agent/session working notes — these accumulate real test-org
+# details, server IPs, tokens and internal context during an
+# agentic build. Do NOT auto-whitelist these; review manually
+# and strip anything sensitive before deciding whether any of
+# this belongs in the public repo at all.
+CLAUDE.md
+AGENTS.md
+docs/
+*.session.md
+*.transcript.md

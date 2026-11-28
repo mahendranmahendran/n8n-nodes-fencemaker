@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "n8n community node for fencemaker: read vehicle/geofence/trip data, create trips and geofences, and trigger workflows from fencemaker events.",
   "license": "MIT",
-  "homepage": "https://fencemaker.app/integrations/n8n",
+  "homepage": "https://github.com/mahendranmahendran/n8n-nodes-fencemaker",
   "keywords": ["n8n-community-node-package"],
   "author": { "name": "Mahendran", "email": "mahendranmahendran@gmail.com" },
   "repository": {
@@ -19,7 +19,7 @@
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease"
   },
-  "files": ["dist"],
+  "files": ["dist", "!dist/tsconfig.tsbuildinfo"],
   "n8n": {
     "n8nNodesApiVersion": 1,
     "strict": true,
